@@ -4,8 +4,8 @@ public class Roll {
     private final int pins;
 
     public Roll(int pins) {
-        if (pins < 0 || pins > 9) {
-            throw new IllegalArgumentException("Number of pins must be between 0 and 9");
+        if (pins < 0 || pins > 10) {
+            throw new IllegalArgumentException("Number of pins must be between 0 and 10");
         }
         this.pins = pins;
     }

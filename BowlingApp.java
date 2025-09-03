@@ -6,8 +6,8 @@ public class BowlingApp {
 
     public static void main(String[] args) {
         System.out.println("=== Bowling Score Tracker ===");
-        System.out.println("Enter the number of pins knocked down (0-9) for each roll.");
-        System.out.println("The game will automatically move to the next frame when needed.\n");
+        System.out.println("Enter the number of pins knocked down (0-10) for each roll.");
+        System.out.println("Enter 10 for a strike (X). The game will automatically move to the next frame.\n");
         
         game.start();
         
@@ -20,6 +20,10 @@ public class BowlingApp {
                 String input = scanner.nextLine().trim();
                 int pins = Integer.parseInt(input);
                 
+                if (pins < 0 || pins > 10) {
+                    throw new IllegalArgumentException("Please enter a number between 0 and 10.");
+                }
+                
                 game.roll(pins);
                 game.displayScore();
                 
@@ -30,7 +34,7 @@ public class BowlingApp {
             }
         }
         
-        System.out.printf("Game Over! Final Score: %d%n", game.getTotalScore());
+        System.out.printf("Final Score: %d%n", game.getTotalScore());
         scanner.close();
     }
 }
